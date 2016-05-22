@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>springmvc-intro-xml</module>
+        <module>springmvc-intro-annotation</module>
     </modules>
 
     <dependencyManagement>

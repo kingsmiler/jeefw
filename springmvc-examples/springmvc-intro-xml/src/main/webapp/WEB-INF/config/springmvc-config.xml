@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!-- 配置请求映射 -->
     <bean name="/input-product" class="org.xman.jeefw.controller.InputProductController"/>
     <bean name="/save-product" class="org.xman.jeefw.controller.SaveProductController"/>
 
+    <!-- 模板处理 -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
