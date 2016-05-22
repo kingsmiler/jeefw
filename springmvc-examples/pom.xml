@@ -11,6 +11,7 @@
     <modules>
         <module>springmvc-intro-xml</module>
         <module>springmvc-intro-annotation</module>
+        <module>springmvc-converter</module>
     </modules>
 
     <dependencyManagement>
