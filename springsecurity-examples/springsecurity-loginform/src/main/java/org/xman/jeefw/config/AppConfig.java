@@ -1,9 +1,6 @@
 package org.xman.jeefw.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,7 +13,11 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(
         basePackages = {"org.xman.jeefw.web"}
 )
-@Import({SecurityConfig.class})
+
+//@Import({SecurityConfig.class})
+
+// for xml configuration
+@ImportResource("classpath:spring-security.xml")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -29,9 +30,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-    /*
-     * Configure ResourceHandlers to serve static resources like CSS/ Javascript etc...
-     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("/static/");
