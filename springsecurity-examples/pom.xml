@@ -12,6 +12,7 @@
     <modules>
         <module>springsecurity-helloworld-annotation</module>
         <module>springsecurity-loginform</module>
+        <module>springsecurity-taglibs</module>
     </modules>
 
     <properties>
@@ -54,6 +55,12 @@
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-config</artifactId>
                 <version>${springsecurity}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-taglibs</artifactId>
+                <version>4.1.0.RELEASE</version>
             </dependency>
 
             <dependency>
