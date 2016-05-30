@@ -13,6 +13,7 @@
         <module>springsecurity-helloworld-annotation</module>
         <module>springsecurity-loginform</module>
         <module>springsecurity-taglibs</module>
+        <module>springsecurity-rolebased-simple</module>
     </modules>
 
     <properties>
@@ -21,6 +22,8 @@
 
         <spring>4.2.6.RELEASE</spring>
         <springsecurity>4.1.0.RELEASE</springsecurity>
+        <hibernate>4.3.11.Final</hibernate>
+        <mysql>5.1.39</mysql>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -61,6 +64,18 @@
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-taglibs</artifactId>
                 <version>4.1.0.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql}</version>
             </dependency>
 
             <dependency>
