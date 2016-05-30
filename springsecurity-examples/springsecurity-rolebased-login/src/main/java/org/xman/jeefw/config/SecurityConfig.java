@@ -2,7 +2,12 @@ package org.xman.jeefw.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
+import org.springframework.security.access.vote.RoleHierarchyVoter;
+import org.springframework.security.access.vote.RoleVoter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -43,5 +48,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/resources/**", "/static/**");
+    }
+
+    @Bean
+    public RoleHierarchy roleHierarchy() {
+        RoleHierarchyImpl impl = new RoleHierarchyImpl();
+        impl.setHierarchy("ROLE_DBA > ROLE_ADMIN  ROLE_ADMIN > ROLE_USER");
+
+        return impl;
+    }
+
+    @Bean
+    @Autowired
+    public RoleVoter roleVoter(RoleHierarchy roleHierarchy) {
+        return new RoleHierarchyVoter(roleHierarchy);
     }
 }
