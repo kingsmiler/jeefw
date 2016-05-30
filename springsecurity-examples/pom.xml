@@ -14,6 +14,7 @@
         <module>springsecurity-loginform</module>
         <module>springsecurity-taglibs</module>
         <module>springsecurity-rolebased-simple</module>
+        <module>springsecurity-rolebased-login</module>
     </modules>
 
     <properties>
