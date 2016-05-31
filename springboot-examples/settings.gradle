@@ -1,0 +1,4 @@
+rootProject.name = 'springboot-examples'
+
+include 'springboot-getstart'
+
