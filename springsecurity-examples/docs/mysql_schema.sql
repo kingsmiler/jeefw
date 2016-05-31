@@ -57,19 +57,19 @@ VALUES ('DBA');
 
 /* Populate APP_USER Table */
 INSERT INTO APP_USER (sso_id, password, first_name, last_name, email, state)
-VALUES ('bill', 'abc123', 'Bill', 'Watcher', 'bill@xyz.com', 'Active');
+VALUES ('bill', '$2a$10$m1Jooedv.9zM1CVXrD1G5O2Ct1zJeNcJA86Jk6uE5DDBJCKw.52.C', 'Bill', 'Watcher', 'bill@xyz.com', 'Active');
 
 INSERT INTO APP_USER (sso_id, password, first_name, last_name, email, state)
-VALUES ('danny', 'abc124', 'Danny', 'Theys', 'danny@xyz.com', 'Active');
+VALUES ('danny', '$2a$10$SDhoUwGUDH4VdadkbWNkLewizKt/RXjTLkf8CVEq9n3anqMBbRxBm', 'Danny', 'Theys', 'danny@xyz.com', 'Active');
 
 INSERT INTO APP_USER (sso_id, password, first_name, last_name, email, state)
-VALUES ('sam', 'abc125', 'Sam', 'Smith', 'samy@xyz.com', 'Active');
+VALUES ('sam', '$2a$10$f023mmevrbFzhwfq7OcRa.mx7aBvwRQRoq2Qu6zC/3ulSqKruie3O', 'Sam', 'Smith', 'samy@xyz.com', 'Active');
 
 INSERT INTO APP_USER (sso_id, password, first_name, last_name, email, state)
-VALUES ('nicole', 'abc126', 'Nicole', 'warner', 'nicloe@xyz.com', 'Active');
+VALUES ('nicole', '$2a$10$Jnhcag52twA6LORPjdTzz.uHuE.yCCZ/lz9c2.BjtqKYXoeqfX3Ri', 'Nicole', 'warner', 'nicloe@xyz.com', 'Active');
 
 INSERT INTO APP_USER (sso_id, password, first_name, last_name, email, state)
-VALUES ('kenny', 'abc127', 'Kenny', 'Roger', 'kenny@xyz.com', 'Active');
+VALUES ('kenny', '$2a$10$GFtsuaC.1ruoDg7jEAf88uu8vTiJEKeiOmOSGN3RYf2xft3990qo.', 'Kenny', 'Roger', 'kenny@xyz.com', 'Active');
 
 /* Populate JOIN Table */
 INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
