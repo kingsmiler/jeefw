@@ -2,10 +2,10 @@ package org.xman.jeefw.config.beetl;
 
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
 import org.beetl.ext.spring.BeetlSpringViewResolver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.servlet.ViewResolver;
 
 @Configuration
@@ -15,25 +15,22 @@ public class ClasspathBeetlConfig {
     @Bean(initMethod = "init", name = "beetlConfig")
     public BeetlGroupUtilConfiguration getBeetlGroupUtilConfiguration() {
 
-        BeetlGroupUtilConfiguration beetlGroupUtilConfiguration = new BeetlGroupUtilConfiguration();
-        ClasspathResourceLoader classpathResourceLoader = new ClasspathResourceLoader();
-        beetlGroupUtilConfiguration.setResourceLoader(classpathResourceLoader);
+        BeetlGroupUtilConfiguration configuration = new BeetlGroupUtilConfiguration();
+        ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader();
+        configuration.setResourceLoader(resourceLoader);
 
         //读取配置文件信息
-//        beetlGroupUtilConfiguration.setConfigFileResource(patternResolver.getResource("classpath:beetl.properties"));
-        return beetlGroupUtilConfiguration;
+        configuration.setConfigFileResource(new ClassPathResource("beetl.properties"));
+        return configuration;
     }
 
     @Bean(name = "viewResolver")
-    @Autowired
-    public ViewResolver viewResolver(BeetlGroupUtilConfiguration beetlGroupUtilConfiguration) {
+    public ViewResolver viewResolver() {
         BeetlSpringViewResolver viewResolver = new BeetlSpringViewResolver();
         viewResolver.setOrder(0);
         viewResolver.setPrefix("/templates");
         viewResolver.setSuffix(".html");
         viewResolver.setContentType("text/html;charset=UTF-8");
-
-//        viewResolver.setConfig(beetlGroupUtilConfiguration);
 
         return viewResolver;
     }

@@ -12,50 +12,21 @@ import org.springframework.web.servlet.ViewResolver;
 @Profile("web")
 public class WebInfoBeetlConfig {
 
-//    @Bean(name = "beetlConfig", initMethod = "init")
-//    public BeetlGroupUtilConfiguration beetlConfig() {
-//
-//        return new BeetlGroupUtilConfiguration();
-//    }
+    @Bean(name = "beetlConfig", initMethod = "init")
+    public BeetlGroupUtilConfiguration beetlConfig() {
+
+        return new BeetlGroupUtilConfiguration();
+    }
 
     @Bean(name = "viewResolver")
     public ViewResolver viewResolver() {
-        BeetlGroupUtilConfiguration configuration = new BeetlGroupUtilConfiguration();
-        configuration.init();
-
         BeetlSpringViewResolver viewResolver = new BeetlSpringViewResolver();
         viewResolver.setPrefix("/WEB-INF/templates");
         viewResolver.setSuffix(".html");
         viewResolver.setContentType("text/html;charset=UTF-8");
         viewResolver.setOrder(0);
-        viewResolver.setConfig(configuration);
 
         return viewResolver;
     }
-//
-//    @Bean(name = "viewResolver")
-//    @Autowired
-//    public ViewResolver viewResolver(BeetlGroupUtilConfiguration configuration) {
-//        BeetlSpringViewResolver viewResolver = new BeetlSpringViewResolver();
-//        viewResolver.setPrefix("/WEB-INF/templates");
-//        viewResolver.setSuffix(".html");
-//        viewResolver.setContentType("text/html;charset=UTF-8");
-//        viewResolver.setOrder(0);
-//viewResolver.setConfig(configuration);
-//
-//        return viewResolver;
-//    }
-
-//
-//    @Bean(name = "viewResolver")
-//    public ViewResolver viewResolver() {
-//        BeetlSpringViewResolver viewResolver = new BeetlSpringViewResolver();
-//        viewResolver.setPrefix("/WEB-INF/templates");
-//        viewResolver.setSuffix(".html");
-//        viewResolver.setContentType("text/html;charset=UTF-8");
-//        viewResolver.setOrder(0);
-//
-//        return viewResolver;
-//    }
 
 }

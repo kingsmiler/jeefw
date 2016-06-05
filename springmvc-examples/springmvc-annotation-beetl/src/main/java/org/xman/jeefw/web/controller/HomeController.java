@@ -18,10 +18,10 @@ public class HomeController {
     public ModelAndView root(ModelMap model) {
         ModelAndView view = new ModelAndView("/welcome");
 
-        String message = "Hello, Spring Boot + Thymeleaf 3";
+        String message = "Hello, SpringMVC + Beetl";
         view.addObject("message", message);
         view.addObject("time", new Date());
-        view.addObject("message", "Hello Spring Boot Beetl!");
+        view.addObject("message", "Hello Beetl!");
 
         return view;
     }
