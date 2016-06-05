@@ -9,16 +9,20 @@ import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.xman.jeefw.config.beetl.BeetlConfig;
+import org.xman.jeefw.config.beetl.ClasspathBeetlConfig;
+import org.xman.jeefw.config.beetl.WebInfoBeetlConfig;
 
 import java.util.regex.Pattern;
 
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@ComponentScan("org.xman.jeefw.web")
-@Import({
-        BeetlConfig.class
+@ComponentScan({
+        "org.xman.jeefw.web",
+        "org.xman.jeefw.config"
+})
+@PropertySource({
+        "classpath:application.properties"
 })
 public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 

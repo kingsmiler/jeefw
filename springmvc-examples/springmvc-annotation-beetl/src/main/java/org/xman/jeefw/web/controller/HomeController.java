@@ -16,7 +16,7 @@ public class HomeController {
 
     @RequestMapping
     public ModelAndView root(ModelMap model) {
-        ModelAndView view = new ModelAndView("welcome.html");
+        ModelAndView view = new ModelAndView("/welcome");
 
         String message = "Hello, Spring Boot + Thymeleaf 3";
         view.addObject("message", message);
