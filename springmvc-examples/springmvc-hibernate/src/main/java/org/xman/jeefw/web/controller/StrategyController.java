@@ -19,9 +19,18 @@ public class StrategyController {
     @Autowired
     private StrategyService strategyService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/add")
+    public void add() {
+        // 如果不返回任何参数,则按映射规则进行匹配
+    }
+    @RequestMapping(value = "/add3")
+    public String add2() {
+        return "/strategy/add";
+    }
+
+    @RequestMapping(value = "/add2", method = RequestMethod.GET)
     public ModelAndView addStrategyPage() {
-        ModelAndView modelAndView = new ModelAndView("strategy-add");
+        ModelAndView modelAndView = new ModelAndView("/strategy-add");
         modelAndView.addObject("strategy", new Strategy());
         return modelAndView;
     }
