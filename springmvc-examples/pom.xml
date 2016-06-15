@@ -16,6 +16,7 @@
         <module>springmvc-annotation</module>
         <module>springmvc-annotation-beetl</module>
         <module>springmvc-hibernate</module>
+        <module>springmvc-i18n-thymeleaf</module>
     </modules>
 
     <dependencyManagement>
