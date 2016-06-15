@@ -1,5 +1,8 @@
 package org.xman.jeefw.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,16 +17,20 @@ import java.util.Date;
 @RequestMapping("/")
 public class HomeController {
 
+    @Autowired
+    private MessageSource messageSource;
+
     @RequestMapping
     public ModelAndView root(ModelMap model) {
         ModelAndView view = new ModelAndView("/welcome");
 
-        String message = "Hello, SpringMVC + Beetl";
-        view.addObject("message", message);
         view.addObject("time", new Date());
         view.addObject("message", "Hello Beetl!");
 
+        String submit = messageSource.getMessage("submit", null, LocaleContextHolder.getLocale());
+
+        model.addAttribute("submit", submit);
+
         return view;
     }
-
 }
