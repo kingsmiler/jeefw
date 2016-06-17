@@ -6,9 +6,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Date;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Handles requests for the application home page.
@@ -21,16 +19,20 @@ public class HomeController {
     private MessageSource messageSource;
 
     @RequestMapping
-    public ModelAndView root(ModelMap model) {
-        ModelAndView view = new ModelAndView("/welcome");
+    public String root() {
+        return "redirect:index.html";
+    }
 
-        view.addObject("time", new Date());
-        view.addObject("message", "Hello Beetl!");
+    @RequestMapping(path = {"index.html"}, method = RequestMethod.GET)
+    public String index(ModelMap model) {
+        String message = "Hello, Spring Boot + Thymeleaf 3";
 
+        model.addAttribute("message", message);
         String submit = messageSource.getMessage("submit", null, LocaleContextHolder.getLocale());
 
         model.addAttribute("submit", submit);
 
-        return view;
+        return "index";
     }
+
 }

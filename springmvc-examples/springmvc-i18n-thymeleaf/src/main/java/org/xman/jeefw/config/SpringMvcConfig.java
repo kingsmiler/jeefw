@@ -1,28 +1,29 @@
 package org.xman.jeefw.config;
 
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.support.DefaultFormattingConversionService;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.xman.jeefw.config.beetl.ClasspathBeetlConfig;
-import org.xman.jeefw.config.beetl.WebInfoBeetlConfig;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.regex.Pattern;
 
 @Configuration
 @EnableWebMvc
-@EnableAspectJAutoProxy
-@ComponentScan({
-        "org.xman.jeefw.web",
-        "org.xman.jeefw.config"
-})
-@PropertySource({
-        "classpath:application.properties"
+@ComponentScan("org.xman.jeefw.web")
+@Import({
+        ThymeleafConfig.class
 })
 public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
@@ -68,10 +69,10 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
     @Bean
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasenames("i18n/messages");
-        source.setUseCodeAsDefaultMessage(true);
+        source.setBasename("messages");
         source.setDefaultEncoding("UTF-8");
 
         return source;
     }
+
 }
