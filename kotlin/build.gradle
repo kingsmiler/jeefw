@@ -1,0 +1,31 @@
+group 'org.xman.jeefw'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        kotlinVersion = '1.0.2'
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+    }
+}
+
+subprojects {
+    apply plugin: 'kotlin'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
